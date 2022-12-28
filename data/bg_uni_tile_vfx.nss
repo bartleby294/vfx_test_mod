@@ -50,7 +50,7 @@ void CreateUnifiedVFXObjectForArea(object areaToMirror, object areaToSeed,
             string tileModel = GetLocalString(module, "BG_CITY_VFX_MODEL_" + GetResRef(areaToMirror) + "_"  + IntToString(curWidth) + "_" + IntToString(curHeight));
             WriteTimestampedLogEntry("tileID: " + IntToString(tileID) + " tileModel: " + tileModel);
 
-            vector vRotate2 = Vector(vRotate.x, 0.0f, 0.0f);
+            vector vRotate2 = Vector(vRotate.x + 270, 0.0f, 0.0f);
 
             //vTranslate = Vector(curWidthf, curHeightf, IntToFloat(0));
             //vector vTranslate = Vector(IntToFloat(0), IntToFloat(0), IntToFloat(0));
