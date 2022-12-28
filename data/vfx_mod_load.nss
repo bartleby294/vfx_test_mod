@@ -11,8 +11,12 @@ void SeedAreaVFX() {
 
 void main()
 {
+    NWNX_Util_SetInstructionLimit(2000000000);
+
     WriteTimestampedLogEntry("[VFX ON MODULE LOAD] Map The City");
     MapTheCity();
     WriteTimestampedLogEntry("[VFX ON MODULE LOAD] Seed Area VFX");
     SeedAreaVFX();
+
+    NWNX_Util_SetInstructionLimit(-1);
 }
