@@ -1,0 +1,5 @@
+**/build
+**/erfs
+**/erfs_data
+**/_dont_commit
+*.ncs
