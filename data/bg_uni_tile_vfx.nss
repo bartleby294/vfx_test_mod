@@ -40,8 +40,7 @@ void CreateUnifiedVFXObjectForArea(object areaToMirror, object areaToSeed,
         while(curHeight < areaHeight) {
             float curWidthFloat = IntToFloat(curWidth) + xOffset - unifiedObjX;
             float curHeightFloat = IntToFloat(curHeight) + yOffset - unifiedObjY;
-            //InitTileVFXSingleObject2(areaToMirror, curWidth, curHeight, scale, singleObject, curWidthFloat, curHeightFloat);
-            WriteTimestampedLogEntry("[Init VFX Area 2] mirror area:" + GetName(areaToMirror) + " current area:" + GetName(areaToSeed)
+            WriteTimestampedLogEntry("[Init VFX Area] mirror area:" + GetName(areaToMirror) + " current area:" + GetName(areaToSeed)
                                       + "(" + FloatToString(unifiedObjX, 5, 2) + ", " + FloatToString(unifiedObjY, 5, 2) + ")("
                                             + FloatToString(curWidthFloat, 5, 2) + ", " + FloatToString(curHeightFloat, 5, 2) + ")");
 
@@ -61,20 +60,13 @@ void CreateUnifiedVFXObjectForArea(object areaToMirror, object areaToSeed,
             eTile = TagEffect(eTile, "TILE_EFFECT_" + IntToString(curWidth) + "_" + IntToString(curHeight));
 
             //DelayCommand(1.0 + (0.3 * i), ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject));
-            //DelayCommand(AREACREATOR_TILE_EFFECT_APPLY_DELAY, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject));
-            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject);
+            DelayCommand(AREACREATOR_TILE_EFFECT_APPLY_DELAY, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject));
+            //ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject);
 
             curHeight = curHeight + 10;
             i = i + 1;
         }
         curWidth = curWidth + 10;
     }
-
-    string singleObjectStr = NWNX_Object_Serialize(singleObject);
-    DestroyObject(singleObject);
-    WriteTimestampedLogEntry("[TILE VFX] Destory singleObject");
-    object singleObjectDes = NWNX_Object_Deserialize(singleObjectStr);
-    NWNX_Object_AddToArea(singleObjectDes, areaToSeed, Vector(unifiedObjX, unifiedObjY, 0.0));
-    WriteTimestampedLogEntry("[TILE VFX] Create New singleObject");
 }
 
