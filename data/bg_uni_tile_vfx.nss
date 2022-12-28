@@ -27,11 +27,11 @@ void CreateUnifiedVFXObjectForArea(object areaToMirror, object areaToSeed,
     int curHeight = 5;
 
     object module = GetModule();
-    location unifiedVFXTileLocation = Location(areaToSeed, Vector(unifiedObjX, unifiedObjY, heightOffset), 0.0);
-    object singleObject = CreateObject(OBJECT_TYPE_PLACEABLE, "alfa_invisibl005", unifiedVFXTileLocation, FALSE, "bg_unified_vfx_object");
+    location unifiedVFXTileLocation = Location(areaToSeed, Vector(unifiedObjX, unifiedObjY, heightOffset), 0.3);
+    object singleObject = CreateObject(OBJECT_TYPE_PLACEABLE, "vfx_invis_object", unifiedVFXTileLocation, FALSE, "bg_unified_vfx_object");
     SetLocalObject(areaToSeed, "BG_VFX_AREA_OBJECT", areaToMirror);
 
-    SetName(singleObject, " ");
+    SetName(singleObject, "INVISIBLE VFX OBJECT");
     NWNX_Visibility_SetVisibilityOverride(OBJECT_INVALID, singleObject, NWNX_VISIBILITY_ALWAYS_VISIBLE);
 
     int i = 1;
