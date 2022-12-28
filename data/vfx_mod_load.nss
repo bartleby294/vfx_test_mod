@@ -6,7 +6,7 @@ void MapTheCity(){
 }
 
 void SeedAreaVFX() {
-    CreateUnifiedVFXObjectForArea(GetObjectByTag("bg4f"), GetObjectByTag("copy_area"), 1.0, -2.0, 0.0, 0.0, 150.0, 150.0);
+    CreateUnifiedVFXObjectForArea(GetObjectByTag("bg4f"), GetObjectByTag("copy_area"), 1.0, 0.3, 0.0, 0.0, 150.0, 150.0);
 }
 
 void main()
