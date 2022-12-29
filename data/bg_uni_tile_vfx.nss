@@ -59,9 +59,12 @@ void CreateUnifiedVFXObjectForArea(object areaToMirror, object areaToSeed,
             effect eTile = EffectVisualEffect(AREACREATOR_VISUALEFFECT_START_ROW + tileID, FALSE, scale, vTranslate, vRotate2);
             eTile = TagEffect(eTile, "TILE_EFFECT_" + IntToString(curWidth) + "_" + IntToString(curHeight));
 
-            DelayCommand(1.0 + (0.3 * i), ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject));
+            // Dynamic delay apply
+            //DelayCommand(1.0 + (0.3 * i), ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject));
+            // Constant delay apply
             //DelayCommand(AREACREATOR_TILE_EFFECT_APPLY_DELAY, ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject));
-            //ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject);
+            // Instant apply
+            ApplyEffectToObject(DURATION_TYPE_PERMANENT, eTile, singleObject);
 
             curHeight = curHeight + 10;
             i = i + 1;
